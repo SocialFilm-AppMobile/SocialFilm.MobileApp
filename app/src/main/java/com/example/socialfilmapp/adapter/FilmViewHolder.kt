@@ -10,9 +10,9 @@ import com.example.socialfilmapp.domain.model.Film
 class FilmViewHolder(view:View):RecyclerView.ViewHolder(view) {
     val binding = ItemFilmBinding.bind(view)
 
-    fun render(filmModel: Film, onClickListener: (Film) -> Unit){
+    fun render(filmModel: Film){
         binding.tvTitleFilm.text = filmModel.title
-        Glide.with(binding.ivFilm.context).load(filmModel.bannerVideo.billboard).into(binding.ivFilm)
-        itemView.setOnClickListener{onClickListener(filmModel)}
+        //Glide.with(binding.ivFilm.context).load(filmModel.bannerVideo.billboard).into(binding.ivFilm)
+        //itemView.setOnClickListener{onClickListener(filmModel)}
     }
 }
