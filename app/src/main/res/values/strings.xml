@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SocialFilm.App</string>
+    <string name="email_addres"><font size="15">Email Addres</font></string>
+    <string name="password"><font size="15">Password</font></string>
 </resources>

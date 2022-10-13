@@ -22,35 +22,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://socialfilm.azurewebsites.net/api/v1/")
+            .baseUrl("https://localhost:7286/api/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         service = retrofit.create<PlaceHolderApi>(PlaceHolderApi::class.java)
-        println("serviceeeeeeeeeeeeees $service")
-        getAllFilms()
+
     }
 
-    private fun getAllFilms() {
-        service.getAllFilms().enqueue(object : Callback<List<Film>> {
-            override fun onResponse(call: Call<List<Film>>, response: Response<List<Film>>) {
-                val film = response?.body()
-                println("film $film")
-                val listFilm = mutableListOf<Film>()
-                if (film != null) {
-                    for (item in film) {
-                        println("item $item")
-                        listFilm.add(item)
-                    }
-                }
-                val recyclerView= findViewById<RecyclerView>(R.id.recyclerViewFilms)
-                recyclerView.layoutManager=LinearLayoutManager(applicationContext)
-                recyclerView.adapter= Adapter(listFilm)
-            }
 
-            override fun onFailure(call: Call<List<Film>>, t: Throwable) {
-                println("error acaaaaaaaaaaaaa")
-                t?.printStackTrace()
-            }
-        })
-    }
 }
