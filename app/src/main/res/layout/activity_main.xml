@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lista de películas recomendadas"
+            android:text="Películas Recomendadas"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textAlignment="center"
