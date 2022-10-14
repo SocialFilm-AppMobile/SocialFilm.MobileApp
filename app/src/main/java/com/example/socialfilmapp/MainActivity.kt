@@ -4,6 +4,7 @@ import PlaceHolderApi.PlaceHolderApi
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,13 +12,14 @@ import com.example.socialfilmapp.adapter.Adapter
 import com.example.socialfilmapp.databinding.ItemFilmBinding
 import com.example.socialfilmapp.domain.model.Film
 import com.google.android.material.internal.ContextUtils.getActivity
+import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FilmsListener {
 
     lateinit var service: PlaceHolderApi
 
@@ -49,12 +51,20 @@ class MainActivity : AppCompatActivity() {
                 }
                 val recyclerView= findViewById<RecyclerView>(R.id.recyclerViewFilms)
                 recyclerView.layoutManager=GridLayoutManager(applicationContext,2)
-                recyclerView.adapter= Adapter(listFilm)
+                recyclerView.adapter= Adapter(listFilm, this@MainActivity)
             }
             override fun onFailure(call: Call<List<Film>>, t: Throwable) {
                 println("error acaaaaaaaaaaaaa")
                 t?.printStackTrace()
             }
         })
+    }
+
+    override fun onItemClick(film: Film) {
+        val intent = Intent(this, ExtraInfoFilmActivity::class.java)
+        intent.putExtra("FILM_TITLE",film.title)
+        startActivity(intent)
+        println(film)
+
     }
 }
