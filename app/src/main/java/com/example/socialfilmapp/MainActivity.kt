@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,6 +43,9 @@ class MainActivity : AppCompatActivity() {
     fun initUI(){
         var btnSignIn:Button=findViewById(R.id.button)
         btnSignIn.setOnClickListener{accesToDetail()}
+
+        var btngoToSignUp:TextView=findViewById(R.id.textViewSignUp)
+        btngoToSignUp.setOnClickListener{startActivity(Intent(this,RegisterActivity::class.java))}
     }
 
     fun accesToDetail(){
