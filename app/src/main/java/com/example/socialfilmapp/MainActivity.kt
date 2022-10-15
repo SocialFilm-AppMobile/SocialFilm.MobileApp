@@ -25,8 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var service: PlaceHolderApi
-
     lateinit var apiClient: ApiClient
 
     override fun onCreate(savedInstanceState: Bundle?) {

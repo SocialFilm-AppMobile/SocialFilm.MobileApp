@@ -32,5 +32,8 @@ class SessionManager(context: Context) {
     fun fetchUserId():Int{
         return prefs.getInt(USER_ID, 0)
     }
+    fun wipe(){
+        prefs.edit().clear().apply()
+    }
 
 }

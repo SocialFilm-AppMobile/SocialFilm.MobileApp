@@ -2,6 +2,8 @@
     <string name="app_name">SocialFilm.App</string>
     <string name="email_addres"><font size="15">Email Addres</font></string>
     <string name="password"><font size="15">Password</font></string>
+    <string name="first_name"><font size="15">First Name</font></string>
+    <string name="last_name"><font size="15">Last Name</font></string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
