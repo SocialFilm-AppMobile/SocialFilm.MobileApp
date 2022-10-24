@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun goToHome(){
-        startActivity(Intent(this,HomeActivity::class.java))
+        startActivity(Intent(this,CentralActivity::class.java))
     }
 
 }

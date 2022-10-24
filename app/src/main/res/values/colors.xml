@@ -12,5 +12,7 @@
     <color name="newcolorPrimary">#FAB137</color>
     <color name="purple_sky">#7965f7</color>
     <color name="purple_dark">#413e51</color>
+    <color name="backgroun_app">#1A1A1A</color>
+    <color name="item_color">#888888</color>
 
 </resources>
