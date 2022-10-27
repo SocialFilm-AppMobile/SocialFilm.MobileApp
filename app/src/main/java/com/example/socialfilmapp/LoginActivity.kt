@@ -22,8 +22,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         apiClient = ApiClient()
-        //initUI()
-        //checkUserValue()
+        initUI()
+        checkUserValue()
     }
 
     fun checkUserValue() {
@@ -37,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
         var btnSignIn:Button=findViewById(R.id.button)
         btnSignIn.setOnClickListener{accesToDetail()}
 
-        //var btngoToSignUp:TextView=findViewById(R.id.textViewSignUp)
-        //btngoToSignUp.setOnClickListener{startActivity(Intent(this,RegisterActivity::class.java))}
+        var btngoToSignUp:TextView=findViewById(R.id.textViewSignUp)
+        btngoToSignUp.setOnClickListener{startActivity(Intent(this,RegisterActivity::class.java))}
     }
 
 
