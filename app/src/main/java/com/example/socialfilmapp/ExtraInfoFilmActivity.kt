@@ -21,8 +21,7 @@ class ExtraInfoFilmActivity : AppCompatActivity() {
         txtTitle.text = bundle?.get("FILM_TITLE").toString()
         txtSynopsis.text = bundle?.get("FILM_SYNOPSIS").toString()
         txtCategory.text = bundle?.get("FILM_CATEGORY").toString()
-        //Glide.with(imgFilm.context).load(bundle?.get("FILM_IMAGE_BILLBOARD").toString()).into(imgFilm)
-        Glide.with(imgFilm.context).load("https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2013/12/266199-banner-oficial-nuevas-fotos-amazing-spider-man-2.jpg?itok=ddNUjFCx")
-            .into(imgFilm)
+        Glide.with(imgFilm.context).load(bundle?.get("FILM_IMAGE_BILLBOARD").toString()).into(imgFilm)
+        //Glide.with(imgFilm.context).load("https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2013/12/266199-banner-oficial-nuevas-fotos-amazing-spider-man-2.jpg?itok=ddNUjFCx").into(imgFilm)
     }
 }
