@@ -59,7 +59,7 @@ class HomeFragment : Fragment() {
             intent.putExtra("FILM_TITLE",it.title)
             intent.putExtra("FILM_SYNOPSIS",it.synopsis)
             intent.putExtra("FILM_CATEGORY",it.category.name)
-            intent.putExtra("FILM_IMAGE_BILLBOARD",it.bannerVideo.billboard)
+            intent.putExtra("FILM_IMAGE_BILLBOARD",it.bannerVideo.Banner)
             startActivity(intent)
             Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
         }
