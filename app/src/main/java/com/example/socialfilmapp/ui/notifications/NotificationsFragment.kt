@@ -1,5 +1,6 @@
 package com.example.socialfilmapp.ui.notifications
 
+import PlaceHolderApi.PlaceHolderApi
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.socialfilmapp.databinding.FragmentNotificationsBinding
-
+import androidx.recyclerview.widget.GridLayoutManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class NotificationsFragment : Fragment() {
 
