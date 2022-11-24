@@ -1,15 +1,15 @@
 package com.example.socialfilmapp.domain
 
+import com.example.socialfilmapp.domain.model.Category
+import com.example.socialfilmapp.domain.model.Film
 import com.example.socialfilmapp.domain.request.LoginRequest
 import com.example.socialfilmapp.domain.request.RegisterRequest
 import com.example.socialfilmapp.domain.responses.LoginResponse
 import com.example.socialfilmapp.domain.responses.RegisterResponse
 import com.example.socialfilmapp.utils.Constants
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.FormUrlEncoded
-
-import retrofit2.http.POST
+import retrofit2.Response
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -18,4 +18,13 @@ interface ApiService {
 
     @POST(Constants.SIGNUP_URL)
     fun register(@Body request: RegisterRequest):Call<RegisterResponse>
+
+    @GET(Constants.FILMS_URL)
+    fun getFilms():Response<List<Film>>
+
+    @GET("categories/{id}/films")
+    fun getFilmsbyCategory(@Path("id")id:Int):Call<List<Film>>
+
+    @GET(Constants.CATEGORIES_URL)
+    suspend fun getCategories():Response<List<Category>>
 }

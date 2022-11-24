@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiClient {
     private lateinit var apiService: ApiService
+    private lateinit var apiService2: ApiService
     fun getApiService(context: Context):ApiService{
 
         if(!::apiService.isInitialized){
@@ -17,6 +18,20 @@ class ApiClient {
                 .client(okhttpClient(context))
                 .build()
             apiService=retrofit.create(ApiService::class.java)
+        }
+        return apiService
+    }
+
+    fun getApiServiceNI():ApiService{
+        if(!::apiService.isInitialized){
+            val retrofit=Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+
+
+                .build()
+            apiService=retrofit.create(ApiService::class.java)
+
         }
         return apiService
     }
