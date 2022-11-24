@@ -93,7 +93,7 @@ class HomeFragment : Fragment() , FilmsListener {
         val intent = Intent(context, ExtraInfoFilmActivity::class.java)
         intent.putExtra("FILM_TITLE",film.title)
         intent.putExtra("FILM_SYNOPSIS",film.synopsis)
-        intent.putExtra("FILM_CATEGORY",film.category.toString())
+        intent.putExtra("FILM_CATEGORY",film.category.name)
         intent.putExtra("FILM_IMAGE_BILLBOARD",film.bannerVideo.billboard)
         startActivity(intent)
     }

@@ -42,6 +42,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/etTitulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -64,6 +65,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/etSinopsis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -86,6 +88,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/etUrlVideo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -109,6 +112,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/etBanner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -132,6 +136,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/etBillboard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -157,7 +162,7 @@
                     android:textStyle="bold" />
 
                 <RadioGroup
-                    android:id="@+id/radioGroup1"
+                    android:id="@+id/radioGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -166,7 +171,7 @@
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Drama"
+                        android:text="Acción"
                         android:textColor="@color/white" />
 
                     <RadioButton
@@ -178,15 +183,9 @@
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Acción"
+                        android:text="Drama"
                         android:textColor="@color/white" />
 
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Ciencia Ficción"
-                        android:textColor="@color/white" />
 
                     <RadioButton
                         android:layout_width="match_parent"
@@ -197,7 +196,13 @@
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Documental"
+                        android:text="Musical"
+                        android:textColor="@color/white" />
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Romance"
                         android:textColor="@color/white" />
 
                 </RadioGroup>
