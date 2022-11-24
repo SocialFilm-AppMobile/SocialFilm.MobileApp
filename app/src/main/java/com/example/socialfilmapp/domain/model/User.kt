@@ -15,8 +15,6 @@ data class User(
     @SerializedName("email")
     var email:String,
 
-    @SerializedName("password")
-    var password:String,
 
 ) {
 }

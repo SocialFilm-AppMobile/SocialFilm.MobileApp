@@ -1,7 +1,11 @@
 package com.example.socialfilmapp.domain.model
 
+import com.google.gson.annotations.SerializedName
+
 data class BannerVideo(
-    val billboard: String,
-    val Banner: String
+    @SerializedName("billboard")
+    var billboard: String,
+    @SerializedName("banner")
+    var Banner: String
 ) {
 }

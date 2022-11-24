@@ -4,22 +4,22 @@ import com.google.gson.annotations.SerializedName
 
 data class SaveFilm(
     @SerializedName("title")
-    val title: String,
+    var title: String,
 
     @SerializedName("synopsis")
-    val synopsis: String,
+    var synopsis: String,
 
     @SerializedName("videoUrl")
-    val video: String,
+    var video: String,
 
     @SerializedName("categoryId")
-    val categoryId: Int,
+    var categoryId: Int,
 
     @SerializedName("bannerVideo")
-    val bannerVideo: BannerVideo,
+    var bannerVideo: BannerVideo,
 
     @SerializedName("userId")
-    val userId: Int,
+    var userId: Int,
 ) {
 
 }

@@ -1,26 +1,52 @@
 package com.example.socialfilmapp.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.example.socialfilmapp.FilmsListener
-import com.example.socialfilmapp.R
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import com.bumptech.glide.Glide
+
+import com.example.socialfilmapp.databinding.ItemFilmBinding
+import com.example.socialfilmapp.domain.ApiClient
 import com.example.socialfilmapp.domain.model.Film
-import retrofit2.Callback
 
-class Adapter(val listFilms: List<Film>, val listener: FilmsListener): RecyclerView.Adapter<FilmViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
-        val layoutInflater= LayoutInflater.from(parent.context)
-        return FilmViewHolder(layoutInflater.inflate(R.layout.item_film, parent, false))
+class Adapter(): ListAdapter<Film,FilmViewHolder<*>>(DiffUtilCallback){
+
+    private object DiffUtilCallback:DiffUtil.ItemCallback<Film>(){
+        override fun areItemsTheSame(oldItem: Film, newItem: Film): Boolean = oldItem.title == newItem.title
+        override fun areContentsTheSame(oldItem: Film, newItem: Film): Boolean = oldItem == newItem
     }
 
-    override fun onBindViewHolder(holder: FilmViewHolder, position: Int) {
-        val item = listFilms[position]
-        holder.render(item, listener)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder<*> {
+        val itemFilmBinding=ItemFilmBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return BindViewHolderClass(itemFilmBinding)
     }
 
-    override fun getItemCount(): Int {
-        return listFilms.size
+    override fun onBindViewHolder(holder: FilmViewHolder<*>, position: Int) {
+        when(holder){
+            is BindViewHolderClass->holder.bind(getItem(position),position)
+        }
     }
+
+
+    inner class BindViewHolderClass(private val binding: ItemFilmBinding):FilmViewHolder<Film>(binding.root){
+        override fun bind(item: Film, position: Int)= with(binding) {
+            Glide.with(ivFilm.context).load(item.bannerVideo.billboard).into(ivFilm)
+            ivFilm.setOnClickListener{
+                onFilmClickListener?.let { click->
+                    click(item)
+                }
+            }
+        }
+    }
+    private var onFilmClickListener:((Film)->Unit)?=null
+
+    fun setFilmClickListener(listener: (Film)->Unit){
+        onFilmClickListener=listener
+    }
+
+
+
+
+
 }

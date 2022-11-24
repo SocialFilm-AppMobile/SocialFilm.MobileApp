@@ -47,6 +47,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     tools:text="Acción" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -72,6 +73,7 @@
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         />
+
 
                     <TextView
                         android:id="@+id/tvInfoSynopsisFilm"

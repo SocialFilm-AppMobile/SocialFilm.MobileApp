@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.socialfilmapp.KeepSession.Companion.prefs
 import com.example.socialfilmapp.R
 import com.example.socialfilmapp.databinding.FragmentDashboardBinding
 import com.example.socialfilmapp.domain.model.*
@@ -63,7 +64,7 @@ class DashboardFragment : Fragment() {
         var billboard: Editable? =binding.etBillboard.text
         var category: Int =binding.radioGroup.checkedRadioButtonId
 
-        service.postFilm(SaveFilm(title = title.toString(), synopsis = synopsis.toString(), video =  video.toString(), bannerVideo = BannerVideo(billboard = billboard.toString(), Banner = banner.toString()), categoryId = category, userId = 1) ).enqueue(object : Callback<SaveFilm> {
+        service.postFilm(SaveFilm(title = title.toString(), synopsis = synopsis.toString(), video =  video.toString(), bannerVideo = BannerVideo(billboard = billboard.toString(), Banner = banner.toString()), categoryId = category, userId = prefs.fetchUserId()) ).enqueue(object : Callback<SaveFilm> {
             override fun onResponse(call: Call<SaveFilm>, response: Response<SaveFilm>) {
                 if (response.isSuccessful){
                     Toast.makeText(context, "Su película se subió correctamente", Toast.LENGTH_LONG).show()
