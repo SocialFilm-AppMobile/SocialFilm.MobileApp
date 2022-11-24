@@ -55,6 +55,12 @@ class HomeFragment : Fragment() {
         }
 
         filmCategoryListAdapter.setFilmClickListener {
+            val intent = Intent(context, ExtraInfoFilmActivity::class.java)
+            intent.putExtra("FILM_TITLE",it.title)
+            intent.putExtra("FILM_SYNOPSIS",it.synopsis)
+            intent.putExtra("FILM_CATEGORY",it.category.name)
+            intent.putExtra("FILM_IMAGE_BILLBOARD",it.bannerVideo.billboard)
+            startActivity(intent)
             Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
         }
         homeViewModel.categoryList.observe(viewLifecycleOwner){

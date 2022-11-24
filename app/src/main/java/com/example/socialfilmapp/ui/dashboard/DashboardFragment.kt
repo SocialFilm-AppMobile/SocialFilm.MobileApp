@@ -71,6 +71,7 @@ class DashboardFragment : Fragment() {
                     goToHome()
                 }
                 else{
+                    println(response.message())
                     Toast.makeText(context, "An error has occurred", Toast.LENGTH_LONG).show()
                 }
             }
