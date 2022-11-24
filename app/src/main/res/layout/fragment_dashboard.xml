@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroun_app"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.dashboard.DashboardFragment"
+    android:id="@+id/DashboardFragment">
 
     <ScrollView
         android:layout_width="fill_parent"

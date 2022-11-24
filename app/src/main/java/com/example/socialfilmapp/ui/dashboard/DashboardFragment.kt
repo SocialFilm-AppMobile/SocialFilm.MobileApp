@@ -1,20 +1,19 @@
 package com.example.socialfilmapp.ui.dashboard
 
 import PlaceHolderApi.PlaceHolderApi
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.socialfilmapp.R
-import com.example.socialfilmapp.adapter.Adapter
 import com.example.socialfilmapp.databinding.FragmentDashboardBinding
 import com.example.socialfilmapp.domain.model.*
+import com.example.socialfilmapp.ui.home.HomeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,18 +65,27 @@ class DashboardFragment : Fragment() {
 
         service.postFilm(SaveFilm(title = title.toString(), synopsis = synopsis.toString(), video =  video.toString(), bannerVideo = BannerVideo(billboard = billboard.toString(), Banner = banner.toString()), categoryId = category, userId = 1) ).enqueue(object : Callback<SaveFilm> {
             override fun onResponse(call: Call<SaveFilm>, response: Response<SaveFilm>) {
-                response.body()
-                println("cetegory -> $category")
-                println("acaaaaaaaaaaaaa ${response.message()}")
+                if (response.isSuccessful){
+                    Toast.makeText(context, "Su película se subió correctamente", Toast.LENGTH_LONG).show()
+                    goToHome()
+                }
+                else{
+                    Toast.makeText(context, "An error has occurred", Toast.LENGTH_LONG).show()
+                }
             }
 
             override fun onFailure(call: Call<SaveFilm>, t: Throwable) {
-                println("error acaaaaaaaaaaaaa")
+                Toast.makeText(context, "An error has occurred", Toast.LENGTH_LONG).show()
                 t?.printStackTrace()
             }
         })
     }
 
+    fun goToHome(){
+         val homeFragment = HomeFragment()
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(binding.DashboardFragment.id, homeFragment)?.commit()
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
