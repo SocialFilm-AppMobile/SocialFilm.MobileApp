@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
     android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_margin="20dp"
     android:background="@color/backgroun_app">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <ImageView
-            android:id="@+id/ivFilm"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:background="@color/backgroun_app" />
-        <!--<TextView
-            android:id="@+id/tvTitleFilm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Nombre de la pelicula"
-            android:background="@color/backgroun_app"/>
--->
-
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/ivFilm"
+        android:gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/backgroun_app" />
 
 </androidx.cardview.widget.CardView>

@@ -2,14 +2,12 @@ package com.example.socialfilmapp.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-data class User(
-    @SerializedName("id")
-    var id:Int,
+data class UserResponse (
 
-    @SerializedName("firstName")
+    @SerializedName("first_name")
     var firstName:String,
 
-    @SerializedName("lastName")
+    @SerializedName("last_name")
     var lastName:String,
 
     @SerializedName("email")
@@ -17,6 +15,4 @@ data class User(
 
     @SerializedName("password")
     var password:String,
-
-) {
-}
+){}

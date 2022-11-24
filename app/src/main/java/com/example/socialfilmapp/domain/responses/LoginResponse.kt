@@ -7,10 +7,10 @@ data class LoginResponse (
     @SerializedName("id")
     var id:Int,
 
-    @SerializedName("first_name")
+    @SerializedName("firstName")
     var firstName:String,
 
-    @SerializedName("last_name")
+    @SerializedName("lastName")
     var lastName:String,
 
     @SerializedName("email")
